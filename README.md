@@ -15,6 +15,12 @@ local $ git clone https://github.com/borh/nexus-7-2013-arch-scripts.git
 local $ cd nexus-7-2013-arch-scripts
 ```
 
+From here on out, the following naming conventions wil be used:
+
+-   _local_: your local machine
+-   _nexus7_: inside the Nexus 7 Android environment
+-   _chroot_: inside the chroot (Arch) inside the Nexus 7 Android environment
+
 Copy the install script and get an android shell:
 
 ```bash
@@ -73,4 +79,4 @@ chroot $ ~/init-vnc.sh
 
 ### VNC Client
 
-Recommend downloading and installing androidVNC from here: [http://dl.dropbox.com/u/13927052/androidVNC-branch_antlersoft_eeePadBuild_004.apk]
+Recommend downloading and installing androidVNC from here: http://dl.dropbox.com/u/13927052/androidVNC-branch_antlersoft_eeePadBuild_004.apk
