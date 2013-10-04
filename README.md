@@ -41,14 +41,14 @@ nexus7 $ sh /sdcard/install-arch.sh
 local $ adb push chroot.sh /sdcard/
 ```
 
-To enter as root:
+To enter as `root`:
 
 ```bash
 nexus7 $ su
-nexus7 $ sh /sdcard/chroot.sh
+nexus7 $ sh /sdcard/chroot.sh root
 ```
 
-To enter as user XYZ:
+To enter as user `XYZ` (after you have created a user, as detailed in the next section):
 
 ```bash
 nexus7 $ su
@@ -57,7 +57,7 @@ nexus7 $ sh /sdcard/chroot.sh XYZ
 
 ### Adding users
 
-Add user XYZ:
+Add user `XYZ`:
 
 ```bash
 chroot $ export USER=XYZ
@@ -80,3 +80,13 @@ chroot $ ~/init-vnc.sh
 ### VNC Client
 
 Recommend downloading and installing androidVNC from here: http://dl.dropbox.com/u/13927052/androidVNC-branch_antlersoft_eeePadBuild_004.apk
+
+Settings for hardware keyboard:
+
+## References
+
+Most of the hard work on installing Arch (chroot) on android has already been done by others.
+These are just some of my personal modifications to their work.
+
+-   http://archlinuxarm.org/forum/viewtopic.php?t=1361
+-   http://rubiojr.rbel.co/hack/2013/01/10/installing-arch-linux-in-your-android-phone-chroot/
