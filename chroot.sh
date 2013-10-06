@@ -38,7 +38,7 @@ busybox mount -o bind /sdcard $_chroot/media/sdcard || exit 1
 USER=$1
 
 echo "Entering chroot..."
-CHROOT_SETUP="export TERM=xterm-256color; mount -t proc proc /proc; mount -t sysfs sysfs /sys; source /etc/profile; clear" # mount /dev/pts; ln -s /proc/self/fd /dev/fd;
+CHROOT_SETUP="export TERM=xterm-256color; mount -t proc proc /proc; mount -t sysfs sysfs /sys; ln -s /proc/self/fd /dev/fd; source /etc/profile; clear"
 
 case $USER in
     *"root"* )
