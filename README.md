@@ -77,11 +77,28 @@ chroot $ cp /media/sdcard/init-vnc.sh ~/
 chroot $ ~/init-vnc.sh
 ```
 
+Before starting the VNC server, we want to configure dwm:
+
+```bash
+chroot $ cd nexus-7-2013-arch-scripts/builds
+chroot $ cd cower && makepkg -i && cd ..
+chroot $ cd pacaur && makepkg -i && cd ..
+chroot $ pacaur -S st
+chroot $ cd dwm && makepkg -i && cd ..
+```
+
 ### VNC Client
 
 Recommend downloading and installing androidVNC from here: http://dl.dropbox.com/u/13927052/androidVNC-branch_antlersoft_eeePadBuild_004.apk
 
+Settings for software keyboard:
+
+-  'Hacker Keyboard' from Play Store
+
 Settings for hardware keyboard:
+
+-  'Tweaked Keyboard Layout' from Play Store
+-  With androidVNC, the "Mouse Pointer Control Mode" passes through most of the keys
 
 ## References
 
