@@ -1,0 +1,32 @@
+# $Id: PKGBUILD 60970 2011-12-19 21:33:58Z spupykin $
+
+pkgname=snowcrash-git
+pkgver=0.0.0
+pkgrel=1
+pkgdesc=""
+url="http://"
+arch=('any')
+license=('MIT')
+options=(zipman)
+source=("$pkgname"::'git://github.com/apiaryio/snowcrash')
+
+md5sums=('SKIP') 
+
+pkgver() { 
+  cd "$pkgname" # Use the tag of the last commit 
+  local ver="$(git describe --long)" 
+  printf "%s" "${ver//-/.}" 
+} 
+
+build() { 
+  cd "$pkgname" 
+  git submodule update --init --recursive
+  export PYTHON=python2
+  sed -i "s/python/python2/" Makefile
+  make
+}
+
+package() { 
+  cd "$pkgname" 
+  install -m755 -D build/out/Release/snowcrash $pkgdir/usr/bin/snowcrash
+}
