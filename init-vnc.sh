@@ -2,7 +2,7 @@
 
 rm ~/.vnc/localhost* > /dev/null 2>&1
 
-vncserver :0 -geometry 1920x1105
+vncserver :0 -geometry 1920x1105 -dpi 320
 dbus-daemon --system --fork > /dev/null 2>&1
 
 echo
