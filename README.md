@@ -64,6 +64,7 @@ chroot $ export USER=XYZ
 chroot $ useradd -m -g users -s /bin/zsh ${USER} # or /bin/bash...
 chroot $ usermod -aG inet ${USER}
 chroot $ usermod -aG inetadmin ${USER}
+chroot $ usermod -aG aid_inet ${USER}
 chroot $ usermod -aG wheel ${USER}
 chroot $ visudo # uncomment %wheel ALL=(ALL) ALL
 ```
