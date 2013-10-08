@@ -37,7 +37,7 @@ busybox mount -o bind /sdcard ${CHROOT}/media/sdcard || exit 1
 echo "Installing packages and upgrading system..."
 echo "nameserver 8.8.8.8" > ${CHROOT}/etc/resolv.conf
 echo "nexus7" > ${CHROOT}/etc/hostname
-busybox chroot ${CHROOT} /usr/bin/env HOME=/root TERM="$TERM" PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash -c "source /etc/profile; groupadd -g 3003 aid_inet; groupadd -g 3004 inet; groupadd -g 3005 inetadmin; usermod -aG inet root; usermod -aG inetadmin root; pacman -Syyu --noconfirm; pacman -S --noconfirm xorg-xrdb tightvnc xterm xorg-xsetroot dwm pkg-config dmenu fakeroot zsh emacs vim git tmux mosh ruby python3 python2 sudo wget rsync base-devel; pacman -Rdd --noconfirm linux-firmware"
+busybox chroot ${CHROOT} /usr/bin/env HOME=/root TERM="$TERM" PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash -c "source /etc/profile; groupadd -g 3003 aid_inet; groupadd -g 3004 inet; groupadd -g 3005 inetadmin; usermod -aG inet root; usermod -aG inetadmin root; pacman -Syyu --noconfirm; pacman -S --noconfirm xorg-xrdb tightvnc xterm xorg-xsetroot rxvt-unicode dwm pkg-config dmenu fakeroot zsh emacs vim git tmux mosh ruby python3 python2 sudo wget rsync base-devel; pacman -Rdd --noconfirm linux-firmware"
 
 echo "Exiting chroot, unmounting..."
 umount ${CHROOT}/media/sdcard || exit 1
