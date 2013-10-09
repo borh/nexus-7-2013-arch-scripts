@@ -14,7 +14,11 @@ build() {
   cd $startdir/src/$pkgname-$pkgver
   ./configure --prefix=/usr
   make || return 1
-  make DESTDIR=$startdir/pkg install
+}
+
+package() {
+  cd $startdir/src/$pkgname-$pkgver
+  make PREFIX=/usr DESTDIR=$pkgdir install
   install -D -m644 $srcdir/$pkgname-$pkgver/COPYING \
     $pkgdir/usr/share/licenses/$pkgname/COPYING
 }
