@@ -1,0 +1,43 @@
+# Maintainer: Hideyuki Tanaka <tanaka.hideyuki@gmail.com>
+pkgname=unidic-mecab
+pkgver=2.1.2
+pkgrel=1
+epoch=
+pkgdesc="UniDic Japanese Morphological Dictionary for MeCab"
+arch=('x86' 'x86_64' 'armv7h')
+url="http://en.sourceforge.jp/projects/unidic/"
+license=('New BSD')
+groups=()
+depends=('mecab')
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=("http://en.sourceforge.jp/frs/redir.php?m=jaist&f=%2Funidic%2F58338%2Funidic-mecab-${pkgver}_src.zip")
+noextract=()
+md5sums=('547ce5824429a022d6fe368af39a106c')
+sha1sums=('c501246539e4e2bd5b04c731fcb04985cccf8bcf')
+
+build() {
+  cd "$srcdir/$pkgname-${pkgver}_src"
+  chmod +x configure
+  ./configure
+}
+
+check() {
+  cd "$srcdir/$pkgname-${pkgver}_src"
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname-${pkgver}_src"
+  make DESTDIR="$pkgdir/" install
+}
+
+# vim:set ts=2 sw=2 et:

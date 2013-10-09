@@ -1,0 +1,23 @@
+# Contributor: Bor Hodoscek <bor.hodoscek@gmail.com> 
+pkgname=mecab
+pkgver=0.996
+pkgrel=1
+pkgdesc="Morphological Analysis Tool"
+arch=('i686' 'x86_64' 'armv7h')
+url="http://code.google.com/p/mecab/"
+license=('BSD' 'LGPL' 'GPL')
+source=(http://mecab.googlecode.com/files/$pkgname-$pkgver.tar.gz)
+md5sums=('7603f8975cea2496d88ed62545ba973f')
+sha1sums=('15baca0983a61c1a49cffd4a919463a0a39ef127')
+backup=('usr/etc/mecabrc')
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure --prefix=/usr --enable-utf8-only
+  make || return 1
+  make DESTDIR=$startdir/pkg install
+  install -D -m644 $srcdir/$pkgname-$pkgver/COPYING \
+    $pkgdir/usr/share/licenses/$pkgname/COPYING
+  install -D -m644 $srcdir/$pkgname-$pkgver/BSD \
+    $pkgdir/usr/share/licenses/$pkgname/BSD
+}

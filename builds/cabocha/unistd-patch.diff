@@ -1,0 +1,12 @@
+--- src/utils.cpp.old	2013-01-19 21:58:08.028569417 +0900
++++ src/utils.cpp	2013-01-19 21:58:16.745235970 +0900
+@@ -3,9 +3,7 @@
+ //  $Id: utils.cpp 50 2009-05-03 08:25:36Z taku-ku $;
+ //
+ //  Copyright(C) 2001-2008 Taku Kudo <taku@chasen.org>
+-#ifdef HAVE_UNISTD_H
+ #include <unistd.h>
+-#endif
+ 
+ #include <iostream>
+ #include <fstream>
