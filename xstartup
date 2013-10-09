@@ -8,5 +8,5 @@ xsetroot -solid black
 setxkbmap -option ctrl:nocaps
 #xmodmap -e 'clear Lock'
 #xmodmap -e 'keycode 89 = Control_L'
-st -f "mono:pixelsize=32" -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+urxvt -fn "xft:mono:pixelsize=32" -rv +sb &
 exec dwm &
