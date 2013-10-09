@@ -75,6 +75,7 @@ chroot $ visudo # uncomment %wheel ALL=(ALL) ALL
 chroot $ mkdir ~/.vnc
 chroot $ cp /media/sdcard/xstartup ~/.vnc
 chroot $ cp /media/sdcard/init-vnc.sh ~/
+chroot $ vncpasswd # set password VNC
 chroot $ ~/init-vnc.sh
 ```
 
