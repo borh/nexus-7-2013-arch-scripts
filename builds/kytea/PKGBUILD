@@ -1,14 +1,14 @@
 # Contributor: Bor Hodoscek <bor.hodoscek@gmail.com> 
 pkgname=kytea
-pkgver=0.4.4
+pkgver=0.4.6
 pkgrel=1
 pkgdesc="The Kyoto Text Analysis Toolkit for word segmentation and pronunciation estimation, etc."
 arch=('i686' 'x86_64' 'armv7h')
 url="http://www.phontron.com/kytea/"
 license=('Apache')
 source=(http://www.phontron.com/kytea/download/$pkgname-$pkgver.tar.gz)
-md5sums=('c2faf73c182fc9f52e5080357ca07357')
-sha1sums=('fa26198a70f99108d3cd5476c96f38e8c058fefb')
+md5sums=('3672f8b90ff8c0420dd6d4f1f11c5c3f')
+sha1sums=('2fb22c64a7babff26d95874877d83a9ef1f09617')
 
 build() {
   cd $startdir/src/$pkgname-$pkgver
