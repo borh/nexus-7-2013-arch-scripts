@@ -34,6 +34,7 @@ busybox mount -t proc proc $_chroot/proc || exit 1
 busybox mount -t sysfs sysfs $_chroot/sys || exit 1
 busybox mount -t devpts devpts $_chroot/dev/pts || exit 1
 busybox mount -o bind /sdcard $_chroot/media/sdcard || exit 1
+busybox mount -o bind /system $_chroot/media/system || exit 1
 
 USER=$1
 
@@ -51,6 +52,7 @@ esac
 
 echo "chroot exited. umount..."
 umount $_chroot/media/sdcard || exit 1
+umount $_chroot/media/system || exit 1
 umount $_chroot/dev/pts || exit 1
 umount $_chroot/proc || exit 1
 umount $_chroot/sys || exit 1
