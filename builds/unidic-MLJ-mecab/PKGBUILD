@@ -1,0 +1,32 @@
+# Maintainer: Bor Hodošček <bor.hodoscek@gmail.com>
+pkgname=unidic-MLJ-mecab
+_pkgname=unidic-MLJ
+pkgver=13
+pkgrel=1
+epoch=
+pkgdesc="UniDic Kindai Japanese Morphological Dictionary for MeCab"
+arch=('x86' 'x86_64' 'armv7h')
+url="http://www2.ninjal.ac.jp/lrc/index.php?plugin=related&page=UniDic%2F%B6%E1%C2%E5%CA%B8%B8%ECUniDic"
+license=('custom')
+groups=()
+depends=('mecab')
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=("${_pkgname}_${pkgver}.zip")
+noextract=()
+md5sums=('c0a15e8a0eb0f164fc3eafcc635f7993')
+sha1sums=('4f61852b8d9322211738b8bdea28e8846bd3a4fe')
+
+package() {
+  cd "${srcdir}"
+  mkdir -p "${pkgdir}/usr/lib/mecab/dic/${_pkgname}/"
+  install -Dm644 Files/dic/unidic-mecab/* -t "${pkgdir}/usr/lib/mecab/dic/${_pkgname}/"
+}

@@ -83,8 +83,8 @@ Before starting the VNC server, we want to configure dwm:
 
 ```bash
 chroot $ cd nexus-7-2013-arch-scripts/builds
-chroot $ cd cower && makepkg -i && cd ..
-chroot $ cd pacaur && makepkg -i && cd ..
+chroot $ sudo pacman -S yajl && cd cower && makepkg -i && cd ..
+chroot $ sudo pacman -S expac && cd pacaur && makepkg -i && cd ..
 chroot $ cd dwm && makepkg -i && cd ..
 ```
 

@@ -1,0 +1,10 @@
+--- gyp/common.gypi.old	2013-03-31 11:54:54.388043891 +0900
++++ gyp/common.gypi	2013-03-31 11:55:23.708177602 +0900
+@@ -59,6 +59,7 @@
+     'warning_cflags': [
+       '-Wall',
+       '-Werror',
++      '-Wno-error=unused-local-typedefs',
+       '-Wno-char-subscripts',
+       '-Wno-sign-compare',
+       '-Wno-deprecated-declarations',

@@ -1,0 +1,32 @@
+# Maintainer: Bor Hodošček <bor.hodoscek@gmail.com>
+pkgname=unidic-EMJ-mecab
+_pkgname=unidic-EMJ
+pkgver=13
+pkgrel=1
+epoch=
+pkgdesc="UniDic Chuko-wabun Japanese Morphological Dictionary for MeCab"
+arch=('x86' 'x86_64' 'armv7h')
+url="http://www2.ninjal.ac.jp/lrc/index.php?UniDic%2F%C3%E6%B8%C5%CF%C2%CA%B8UniDic#q40aa90a"
+license=('custom')
+groups=()
+depends=('mecab')
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=("${_pkgname}_${pkgver}.zip")
+noextract=()
+md5sums=('64813fae6c1b34c637a6d91d6bed00d9')
+sha1sums=('6382cda0ecdb4c58e3b1264c3e032c9f3ad1c391')
+
+package() {
+  cd "${srcdir}"
+  mkdir -p "${pkgdir}/usr/lib/mecab/dic/${_pkgname}/"
+  install -Dm644 Files/dic/unidic-mecab/* -t "${pkgdir}/usr/lib/mecab/dic/${_pkgname}/"
+}
