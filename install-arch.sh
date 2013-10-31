@@ -24,6 +24,7 @@ busybox gunzip ArchLinuxARM-trimslice-latest.tar.gz -c | busybox tar x -f - -C $
 
 echo "Adding directories..."
 busybox mkdir -p ${CHROOT}/media/sdcard
+busybox mkdir -p ${CHROOT}/media/system
 busybox mkdir -p ${CHROOT}/dev/pts
 busybox mkdir ${CHROOT}/dev/ptmx
 
