@@ -5,15 +5,15 @@
 ## Mozc compile option
 _bldtype=Release
 
-_zipcoderel=201309
+_zipcoderel=201312
 _protobuf_ver=2.5.0
-_gyp_rev=1774
+_gyp_rev=1828
 
 _pkgbase=mozc
 _revision=178
 pkgname=fcitx-mozc
 pkgdesc="Fcitx Module of A Japanese Input Method for Chromium OS, Windows, Mac and Linux (the Open Source Edition of Google Japanese Input)"
-pkgver=1.12.1599.102
+pkgver=1.13.1651.102
 _patchver=${pkgver}.1
 pkgrel=9
 arch=('i686' 'x86_64' 'armv7h')
@@ -23,9 +23,9 @@ depends=('qt4' 'fcitx' 'zinnia')
 makedepends=('pkg-config' 'python2' 'gtest' 'curl' 'gtk2' 'mesa' 'svn')
 replaces=('mozc-fcitx')
 conflicts=('mozc' 'mozc-server' 'mozc-utils-gui' 'mozc-fcitx')
-source=(svn+http://mozc.googlecode.com/svn#revision=$_revision
+source=(mozc::svn+http://mozc.googlecode.com/svn/trunk/src#revision=$_revision
         gyp::svn+http://gyp.googlecode.com/svn/trunk#revision=$_gyp_rev
-        http://downloads.sourceforge.net/pnsft-aur/ken_all-${_zipcoderel}.zip
+        http://downloads.sourceforge.net/pnsft-aur/x-ken-all${_zipcoderel}.zip
         http://downloads.sourceforge.net/pnsft-aur/jigyosyo-${_zipcoderel}.zip
         http://protobuf.googlecode.com/files/protobuf-${_protobuf_ver}.tar.bz2
         http://download.fcitx-im.org/fcitx-mozc/fcitx-mozc-${_patchver}.patch
@@ -41,7 +41,7 @@ build() {
   CFLAGS="${CFLAGS} -I/usr/include/qt4 -fvisibility=hidden"
   CXXFLAGS="${CXXFLAGS} -I/usr/include/qt4 -fvisibility=hidden"
 
-  cd svn/trunk/src
+  cd mozc
   
   # Apply fcitx patch
   rm unix/fcitx -rf
@@ -57,7 +57,7 @@ build() {
 
   # Generate zip code seed
   msg "Generating zip code seed..."
-  python2 dictionary/gen_zip_code_seed.py --zip_code="${srcdir}/KEN_ALL.CSV" --jigyosyo="${srcdir}/JIGYOSYO.CSV" >> data/dictionary_oss/dictionary09.txt
+  python2 dictionary/gen_zip_code_seed.py --zip_code="${srcdir}/x-ken-all.csv" --jigyosyo="${srcdir}/JIGYOSYO.CSV" >> data/dictionary_oss/dictionary09.txt
   msg "Done."
 
   # Copy gyp
@@ -87,7 +87,7 @@ build() {
 }
 
 package() {
-  cd svn/trunk/src
+  cd mozc
   install -D -m 755 out_linux/${_bldtype}/mozc_emacs_helper "${pkgdir}/usr/bin/mozc_emacs_helper"
   install -d "${pkgdir}/usr/share/emacs/site-lisp/emacs-mozc/"
   install -m 644 unix/emacs/mozc.el{,c} "${pkgdir}/usr/share/emacs/site-lisp/emacs-mozc"
@@ -124,8 +124,8 @@ package() {
 
 sha512sums=('SKIP'
             'SKIP'
-            'e497d6dfca2cf06d4ab0ed7f84e1daea8da776071d19818dc09b5c2586d52dfceebd3b665ebc0eb1143e84c8dcb11cac6197e8cbff617415cc6f16316e9a2004'
-            '04c2719618227beea8b41705d25382a78fa4173c7355c2a4ebd4d424538e0591513aa951eb9a8a11a4ad4ff379839fda42264a98e07f1b062ff8e4200af7c741'
+            'f05c779257c8bc6e51ba8ab9fddec918a6de29d45c756bd3b83d42cb99265ada85313e980518096338ebcadcd0fe6433cbd9ad20a74f4116975eb7c168b72d81'
+            '87e8733cfc11528fa698b0a48f4e89c0dd02e2d79c804025219531fad4776cfcba720d720003d83a65401b4631c9ae1adc3395d18965066d232a76794ae3d54f'
             '5994b3669808b82fef5c860ecad36358c0767f84acac877e7bfcf722e59d972835a955714149bdd4158fbd1328a51d01397a563991d26475351ee72be48142ee'
-            'e6a5a21520e36aa6cd27295c5a1b050a8f1a8dccf82918b0b57f17c79393c8b527c3f70dbfa2de0af42d3f85eac3095ef476a067fb24dbc2fa325c1f6a1138cc'
+            'cd879029d87fd80a70796bd83ac67decbb58b181acafcee22110cb46a50c371c82b67babcfe80b1c05fa9beef3d3a7ddd580105a70c411795cf8c9ef745661e2'
             '5507c637e5a65c44ccf6e32118b6d16647ece865171b9a77dd3c78e6790fbd97e6b219e68d2e27750e22074eb536bccf8d553c295d939066b72994b86b2f251a')
