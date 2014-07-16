@@ -9,7 +9,7 @@ chmod 777 "/data/local/tmp/arch/arch-busybox"
 PATH="$PATH:/data/local/tmp/arch/"
 
 echo "Downloading ArchLinuxARM-trimslice-latest.tar.gz..."
-arch-busybox wget -c http://tw.mirror.archlinuxarm.org/os/ArchLinuxARM-trimslice-latest.tar.gz || exit 1
+arch-busybox wget -c http://nl.mirror.archlinuxarm.org/os/ArchLinuxARM-trimslice-latest.tar.gz || exit 1
 
 echo "Making 10GB image..."
 arch-busybox dd if=/dev/zero of=${CHROOT}.img bs=1M seek=10000 count=1 || exit 1
