@@ -51,15 +51,15 @@ case $USER in
 esac
 
 echo "chroot exited. umount..."
-umount $_chroot/media/sdcard || exit 1
-umount $_chroot/media/system || exit 1
-umount $_chroot/dev/pts || exit 1
-umount $_chroot/proc || exit 1
-umount $_chroot/sys || exit 1
+umount $_chroot/media/sdcard
+umount $_chroot/media/system
+umount $_chroot/dev/pts
+umount $_chroot/proc
+umount $_chroot/sys
 echo "killing existing processes in chroot..."
 busybox fuser -mk $_chroot
-umount $_chroot/dev || exit 1
-umount $_chroot || exit 1
+umount $_chroot/dev
+umount $_chroot
 echo "Deactivating loop..."
 busybox losetup -d /dev/loop256
 echo "Done. Bye!"
