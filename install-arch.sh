@@ -14,7 +14,7 @@ arch-busybox wget -c http://tw.mirror.archlinuxarm.org/os/ArchLinuxARM-trimslice
 echo "Making 10GB image..."
 arch-busybox dd if=/dev/zero of=${CHROOT}.img bs=1M seek=10000 count=1 || exit 1
 
-echo "Formating image..."
+echo "Formatting image..."
 arch-busybox mke2fs -L arch-image -F ${CHROOT}.img || exit 1
 arch-busybox mkdir ${CHROOT}
 
