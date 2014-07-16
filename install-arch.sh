@@ -42,7 +42,7 @@ arch-busybox mount -t devpts devpts ${CHROOT}/dev/pts || exit 1
 arch-busybox mount -o bind /sdcard ${CHROOT}/media/sdcard || exit 1
 
 echo "Installing packages and upgrading system..."
-echo "nameserver 8.8.8.8" > ${CHROOT}/etc/resolv.conf
+echo -e "nameserver 208.67.222.222\nnameserver 208.67.220.220" > ${CHROOT}/etc/resolv.conf
 echo "nexus7" > ${CHROOT}/etc/hostname
 arch-busybox rm -rf ${CHROOT}/opt/nvidia
 arch-busybox rm -f ${CHROOT}/etc/ld.so.conf.d/nvidia-trimslice.conf
